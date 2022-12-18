@@ -1,0 +1,563 @@
+/* fonts */
+@font-face {
+  font-family: "Playfair Display";
+  font-weight: 400;
+  font-style: normal;
+  src: local("Playfair Display"),
+    url("../fonts/PlayfairDisplay-Regular.woff2") format("woff2"),
+    url("../fonts/PlayfairDisplay-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-weight: 900;
+  font-style: normal;
+  src: local("Playfair Display"),
+    url("../fonts/PlayfairDisplay-Black.woff2") format("woff2"),
+    url("../fonts/PlayfairDisplay-Black.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-weight: 700;
+  font-style: normal;
+  src: local("Playfair Display"),
+    url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"),
+    url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 600;
+  font-style: normal;
+  src: local("Inter"), url("../fonts/Inter-SemiBold.woff2") format("woff2"),
+    url("../fonts/Inter-SemiBold.woff") format("woff");
+
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 900;
+  font-style: normal;
+  src: local("Inter"), url("../fonts/Inter-Black.woff2") format("woff2"),
+    url("../fonts/Inter-Black.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 200;
+  font-style: normal;
+  src: local("Inter"), url("../fonts/Inter-ExtraLight.woff2") format("woff2"),
+    url("../fonts/Inter-ExtraLight.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-style: normal;
+  src: local("Inter"), url("../fonts/Inter-Regular.woff2") format("woff2"),
+    url("../fonts/Inter-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  font-style: normal;
+  src: local("Inter"), url("../fonts/Inter-Bold.woff2") format("woff2"),
+    url("../fonts/Inter-Bold.woff") format("woff");
+  font-display: swap;
+}
+
+/* reset */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[class] {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* vars */
+$default: #2f2e2e;
+$white: #fafafa;
+
+%pd-400 {
+  font-family: "Playfair Display";
+  font-weight: 400;
+}
+
+%pd-700 {
+  font-family: "Playfair Display";
+  font-weight: 700;
+}
+
+%pd-900 {
+  font-family: "Playfair Display";
+  font-weight: 900;
+}
+
+%inter-200 {
+  font-family: "Inter";
+  font-weight: 200;
+}
+
+%inter-400 {
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+%inter-600 {
+  font-family: "Inter";
+  font-weight: 600;
+}
+
+%inter-700 {
+  font-family: "Inter";
+  font-weight: 700;
+}
+
+%inter-900 {
+  font-family: "Inter";
+  font-weight: 900;
+}
+
+/* global */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @extend %pd-400;
+  color: $default;
+}
+
+.container {
+  max-width: 1278px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.title {
+  font-size: 51px;
+  line-height: 60px;
+  font-family: "Playfair Display";
+  font-weight: 900;
+  color: $default;
+}
+
+button {
+  background-color: #fff;
+}
+
+/* header */
+
+.header {
+  padding: 47px 0 91px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 999;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__search {
+    margin-left: 64px;
+  }
+  &__search-btn {
+    border: none;
+    position: relative;
+    width: 25px;
+    height: 22px;
+    cursor: pointer;
+    background-image: url("../images/search.svg");
+  }
+}
+.menu {
+  margin-left: auto;
+  &__list {
+    display: flex;
+  }
+  &__list-item + .menu__list-item {
+    margin-left: 106px;
+  }
+  &__list-link {
+    font-size: 20px;
+    line-height: 24px;
+    @extend %inter-400;
+    color: $default;
+    transition: all 0.3s;
+    &:hover {
+      text-shadow: 0px 0px 1px black;
+    }
+  }
+}
+
+.top-slider {
+  &__container {
+    max-width: 1440px;
+  }
+  &__item {
+    position: relative;
+  }
+  &__img {
+    margin-left: auto;
+  }
+  &__item-info {
+    max-width: 691px;
+    padding: 138px 155px 138px 100px;
+    position: absolute;
+    top: 95px;
+    left: 0;
+    background: linear-gradient(
+      91.1deg,
+      rgba(244, 246, 245, 0.9) -7.89%,
+      rgba(255, 255, 255, 0.9) 132.55%
+    );
+  }
+  &__item-title {
+    margin-bottom: 10px;
+  }
+  &__item-text {
+    font-size: 32px;
+    line-height: 39px;
+    color: $default;
+    @extend %inter-200;
+  }
+}
+
+.slick-prev {
+  bottom: 4px;
+  right: 81px;
+}
+.slick-next {
+  bottom: 4px;
+  right: 0px;
+}
+.slick-prev,
+.slick-next {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  background: rgba(244, 246, 245, 0.7);
+  font-size: 0;
+}
+
+.slick-arrow {
+  padding: 16px 29px;
+}
+
+.services {
+  padding: 16px 0 65px;
+  background-color: rgba(37, 77, 77, 0.2);
+  margin-top: -4px;
+  &__title {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  &__items {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__item {
+    max-width: 158px;
+    text-align: center;
+  }
+  &__item-img {
+    margin: 0 auto;
+    margin-bottom: 8px;
+  }
+  &__item-title {
+    @extend %pd-900;
+    font-size: 27px;
+    line-height: 32px;
+    margin-bottom: 10px;
+  }
+  &__item-text {
+    @extend %pd-400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.about {
+  padding: 76px 0 95px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__content {
+    max-width: 456px;
+    padding-top: 65px;
+  }
+  &__contant-title {
+    margin-bottom: 27px;
+  }
+  &__contant-text {
+    @extend %pd-400;
+    font-size: 31px;
+    line-height: 36px;
+    margin-bottom: 36px;
+  }
+  &__contant-link {
+    @extend %inter-600;
+    font-size: 24px;
+    line-height: 29px;
+    color: $default;
+  }
+}
+
+.projects {
+  padding-bottom: 4px;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 71px;
+  }
+  &__btn {
+    border: none;
+    @extend %inter-400;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  &__btn:hover {
+    text-shadow: 0px 0px 1px black;
+  }
+  &__btn:nth-child(1) {
+    margin-right: 94px;
+  }
+  &__btn:nth-child(2) {
+    margin-right: 135px;
+  }
+  &__btn:nth-child(3) {
+    margin-right: 113px;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__item {
+    margin-bottom: 86px;
+  }
+  &__item-img {
+    margin-bottom: 13px;
+  }
+  &__item-text {
+    text-align: center;
+    max-width: 178px;
+    margin: 0 auto;
+  }
+}
+
+.mixitup-control-active {
+  text-shadow: 0px 0px 1px black;
+}
+
+.testimonial {
+  padding: 0 0 66px;
+  &__title {
+    text-align: center;
+    margin-bottom: 91px;
+  }
+  &__item {
+    padding-bottom: 88px;
+  }
+  &__item-content {
+    display: flex;
+  }
+  &__item-img {
+    margin-right: 29px;
+  }
+  &__item-title {
+    font-size: 28px;
+    line-height: 33px;
+    @extend %pd-700;
+    margin-bottom: 16px;
+  }
+  &__item-text {
+    max-width: 307px;
+    font-size: 17px;
+    line-height: 20px;
+  }
+  & ul.slick-dots {
+    display: flex;
+    justify-content: center;
+  }
+  & ul.slick-dots button {
+    border: none;
+    font-size: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e9e9e9;
+    margin-right: 20px;
+  }
+  & ul.slick-dots li.slick-active button {
+    background-color: #c4c4c4;
+  }
+}
+
+.footer {
+  background-color: #2e2f32;
+  color: $white;
+  padding: 47px 0 44px;
+  &__items {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    margin-bottom: 7px;
+    display: inline-block;
+  }
+  &__item-info {
+    font-size: 17px;
+    line-height: 29px;
+    max-width: 287px;
+    @extend %inter-400;
+    margin-bottom: 50px;
+  }
+  &__social-list {
+    display: flex;
+    align-items: center;
+  }
+  &__social-link {
+    margin-right: 36px;
+  }
+  &__title {
+    font-size: 24px;
+    line-height: 29px;
+    @extend %inter-900;
+    margin-bottom: 18px;
+  }
+  &__articles-item {
+    margin-bottom: 10px;
+  }
+  &__articles-link {
+    color: $white;
+    @extend %inter-400;
+    &:hover {
+      text-shadow: 0px 0px 1px $white;
+    }
+  }
+  &__links-item {
+    margin-bottom: 5px;
+  }
+  &__links-link {
+    color: $white;
+    font-size: 17px;
+    line-height: 21px;
+    @extend %inter-400;
+    &:hover {
+      text-shadow: 0px 0px 1px $white;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu__list-item + .menu__list-item {
+    margin-left: 53px;
+  }
+
+  .top-slider {
+    &__item-info {
+      padding: 80px;
+      top: 170px;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .title {
+    font-size: 43px;
+    line-height: 52px;
+  }
+
+  .top-slider {
+    &__item-info {
+      padding: 50px;
+      top: 170px;
+    }
+    &__item-text {
+      font-size: 22px;
+      line-height: 26px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu__list-item + .menu__list-item {
+    margin-left: 36px;
+  }
+  .top-slider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+}
